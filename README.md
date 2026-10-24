@@ -22,6 +22,13 @@ during bring-up. The reference port used `0xB8000000`; kebab's Mu GOP hands the
 framebuffer over at `0x9C000000`, and using the wrong address either draws
 nothing or faults on unmapped memory.
 
+## Status
+
+In use. It is currently the only console on this port: the phone exposes no
+UART, so every bring-up result — page-table progress, `arm_init` entry, the
+boot arguments and panics — is read off the panel through this driver. The
+console starts at text row 4 so the output clears the camera punch-hole.
+
 ## Usage
 
 ```c
